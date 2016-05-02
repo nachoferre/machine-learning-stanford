@@ -1,0 +1,7 @@
+function [J, grad] = Coste (theta, X, Y)
+m = length(Y);
+h_theta = 1 ./ (1+ exp(-(X*theta)));
+J = 1/m * sum (-Y .*log(h_theta) .- (1-Y).*log(1-h_theta));
+grad = 1/m .* (X' * (h_theta .- Y));
+
+end
